@@ -32,6 +32,7 @@ export class CustumersService {
 
   update(id: string, updateCustumerDto: UpdateCustumerDto) {
     // return `This action updates a #${id} custumer`;
+    console.log(updateCustumerDto);
     return this.custumerModel.updateOne(
       { custumer: new Types.ObjectId(id) },
       { $set: updateCustumerDto },
@@ -39,6 +40,7 @@ export class CustumersService {
   }
 
   remove(id: string) {
-    return `This action removes a #${id} custumer`;
+    // return `This action removes a #${id} custumer`;
+    return this.custumerModel.findOneAndDelete({ id: id })
   }
 }

@@ -15,8 +15,8 @@ export class Pet {
     @Prop()
     name: string;
 
-    @Prop()
-    birthDate: number;
+    @Prop({ type: Date, required: true })
+    birthDate: Date;
 
     @Prop()
     species: string;

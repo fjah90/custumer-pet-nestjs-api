@@ -6,6 +6,10 @@ import { Exclude, Expose } from 'class-transformer';
 export class ReadPetDto {
     @Expose()
     @IsNotEmpty()
+    readonly id: string;
+
+    @Expose()
+    @IsNotEmpty()
     readonly custumerId: string;
 
     @Expose()

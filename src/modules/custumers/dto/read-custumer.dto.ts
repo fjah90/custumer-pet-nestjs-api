@@ -4,7 +4,7 @@ import { Exclude, Expose } from 'class-transformer';
 
 @Exclude()
 export class ReadCustumerDto {
-    @Expose()
+    @Expose({ name: "id" })
     readonly id: string;
 
     @Expose()
