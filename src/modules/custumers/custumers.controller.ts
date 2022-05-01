@@ -1,11 +1,20 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+/* eslint-disable prettier/prettier */
+import {
+  Controller,
+  Get,
+  Post,
+  Body,
+  Patch,
+  Param,
+  Delete,
+} from '@nestjs/common';
 import { CustumersService } from './custumers.service';
 import { CreateCustumerDto } from './dto/create-custumer.dto';
 import { UpdateCustumerDto } from './dto/update-custumer.dto';
 
 @Controller('custumers')
 export class CustumersController {
-  constructor(private readonly custumersService: CustumersService) {}
+  constructor(private readonly custumersService: CustumersService) { }
 
   @Post()
   create(@Body() createCustumerDto: CreateCustumerDto) {
@@ -23,7 +32,10 @@ export class CustumersController {
   }
 
   @Patch(':id')
-  update(@Param('id') id: string, @Body() updateCustumerDto: UpdateCustumerDto) {
+  update(
+    @Param('id') id: string,
+    @Body() updateCustumerDto: UpdateCustumerDto,
+  ) {
     return this.custumersService.update(id, updateCustumerDto);
   }
 

@@ -1,35 +1,35 @@
-import { IsString, IsNumber, IsEmail } from "class-validator";
+/* eslint-disable prettier/prettier */
+import { IsString, IsNumber, IsEmail } from 'class-validator';
 import { Exclude, Expose } from 'class-transformer';
 
 @Exclude()
 export class ReadCustumerDto {
     @Expose()
-    readonly id: String;
+    readonly id: string;
 
     @Expose()
     @IsNumber()
-    readonly dni: Number;
+    readonly dni: number;
 
     @Expose()
     @IsString()
-    readonly firstName: String;
+    readonly firstName: string;
 
     @Expose()
     @IsString()
-    readonly lastName: String;
+    readonly lastName: string;
 
     @Expose()
     @IsNumber()
-    readonly phoneNumber: String;
+    readonly phoneNumber: string;
 
     @Expose()
     @IsEmail()
-    readonly email: String;
+    readonly email: string;
 
     @Expose()
     @IsString()
-    readonly note: String;
+    readonly note: string;
 
     limit: any;
-
 }

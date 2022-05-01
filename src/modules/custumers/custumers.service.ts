@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import { Model, Types } from 'mongoose';
 import { InjectModel } from '@nestjs/mongoose';
 
@@ -9,9 +10,9 @@ import { Custumer, CustumerDocument } from '../../schemas/custumer.schema';
 
 @Injectable()
 export class CustumersService {
-
-  constructor(@InjectModel(Custumer.name) private custumerModel: Model<CustumerDocument>) { }
-
+  constructor(
+    @InjectModel(Custumer.name) private custumerModel: Model<CustumerDocument>,
+  ) {}
 
   create(createCustumerDto: CreateCustumerDto): Promise<Custumer> {
     // return 'This action adds a new custumer';
@@ -33,7 +34,8 @@ export class CustumersService {
     // return `This action updates a #${id} custumer`;
     return this.custumerModel.updateOne(
       { custumer: new Types.ObjectId(id) },
-      { $set: updateCustumerDto });
+      { $set: updateCustumerDto },
+    );
   }
 
   remove(id: string) {

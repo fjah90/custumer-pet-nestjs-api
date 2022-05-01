@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { Document } from 'mongoose';
 
@@ -6,23 +7,22 @@ export type CustumerDocument = Custumer & Document;
 @Schema()
 export class Custumer {
     @Prop()
-    dni: Number;
+    dni: number;
 
     @Prop()
-    firstName: String;
+    firstName: string;
 
     @Prop()
-    lastName: String;
+    lastName: string;
 
     @Prop()
-    phoneNumber: String;
+    phoneNumber: string;
 
     @Prop()
-    email: String;
+    email: string;
 
     @Prop()
-    note: String;
-
+    note: string;
 }
 
 export const CustumerSchema = SchemaFactory.createForClass(Custumer);

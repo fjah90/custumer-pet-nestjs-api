@@ -1,15 +1,16 @@
-import { IsString, IsDate, IsNotEmpty } from "class-validator";
+/* eslint-disable prettier/prettier */
+import { IsString, IsDate, IsNotEmpty } from 'class-validator';
 import { Exclude, Expose } from 'class-transformer';
 
 @Exclude()
 export class ReadPetDto {
     @Expose()
     @IsNotEmpty()
-    readonly customerId: String;
+    readonly custumerId: string;
 
     @Expose()
     @IsString()
-    readonly chipNumber: String;
+    readonly chipNumber: string;
 
     @Expose()
     @IsString()
@@ -21,20 +22,19 @@ export class ReadPetDto {
 
     @Expose()
     @IsString()
-    readonly species: String;
+    readonly species: string;
 
     @Expose()
     @IsString()
-    readonly race: String;
+    readonly race: string;
 
     @Expose()
     @IsString()
-    readonly description: String;
+    readonly description: string;
 
     @Expose()
     @IsString()
-    readonly photoURL: String;
-    
+    readonly photoURL: string;
+
     limit: any;
-
 }
