@@ -1,0 +1,33 @@
+import {Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
+import { Document } from 'mongoose';
+
+export type PetDocument = Pet & Document;
+
+@Schema()
+export class Pet {
+    @Prop()
+    customerId: string;
+
+    @Prop()
+    chipNumber: string;
+
+    @Prop()
+    name: string;
+
+    @Prop()
+    birthDate: number;
+
+    @Prop()
+    species: string;
+
+    @Prop()
+    race: string;
+
+    @Prop()
+    description: string;
+
+    @Prop()
+    photoURL: string;
+}
+
+export const PetSchema = SchemaFactory.createForClass(Pet);
