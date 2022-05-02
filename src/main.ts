@@ -6,6 +6,7 @@ import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 async function bootstrap() {
   const app = await NestFactory.create(AppModule, { cors: true });
   app.setGlobalPrefix('api');
+  app.enableCors(); // protection
 
   const options = new DocumentBuilder()
     .setTitle('Custumer Pets Nestjs API')
