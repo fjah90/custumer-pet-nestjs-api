@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import {Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { Document } from 'mongoose';
 
@@ -6,7 +7,7 @@ export type PetDocument = Pet & Document;
 @Schema()
 export class Pet {
     @Prop()
-    customerId: string;
+    custumerId: string;
 
     @Prop()
     chipNumber: string;
@@ -14,8 +15,8 @@ export class Pet {
     @Prop()
     name: string;
 
-    @Prop()
-    birthDate: number;
+    @Prop({ type: Date, required: true })
+    birthDate: Date;
 
     @Prop()
     species: string;

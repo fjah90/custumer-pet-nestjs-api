@@ -1,26 +1,27 @@
+/* eslint-disable prettier/prettier */
 import { IsString, MaxLength, IsDate, IsNotEmpty } from "class-validator";
 
 export class CreatePetDto{
     @IsNotEmpty()
-    readonly customerId: String;
+    readonly custumerId: string;
     @IsString()
     @MaxLength(16, { message: 'this chip number is not valid' })
-    readonly chipNumber: String;
+    readonly chipNumber: string;
     @IsString()
     @MaxLength(50, { message: 'this name is not valid' })
-    readonly name: String;
+    readonly name: string;
     @IsDate()
     readonly birthDate: Date;
     @IsString()
     @MaxLength(50, { message: 'this species is not valid' })
-    readonly species: String;
+    readonly species: string;
     @IsString()
     @MaxLength(50, { message: 'this race is not valid' })
-    readonly race: String;
+    readonly race: string;
     @IsString()
     @MaxLength(255, { message: 'this description is not valid' })
-    readonly description: String;
+    readonly description: string;
     @IsString()
-    readonly photoURL: String;
+    readonly photoURL: string;
 
 }

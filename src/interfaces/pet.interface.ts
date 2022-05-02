@@ -1,7 +1,8 @@
+/* eslint-disable prettier/prettier */
 import { Document } from 'mongoose';
 
 export interface Pet extends Document {
-    readonly customerId: string;
+    readonly custumerId: string;
     readonly chipNumber: string;
     readonly name: string;
     readonly birthDate: number;
