@@ -1,9 +1,16 @@
-/* eslint-disable prettier/prettier */
-import { Injectable } from '@nestjs/common';
+import { Inject, Injectable } from '@nestjs/common';
+import { ConfigService } from '@nestjs/config';
 
 @Injectable()
 export class AppService {
-  getHello(): string {
+  @Inject(ConfigService)
+  public config: ConfigService;
+
+  public getHello(): string {
+    const databaseName: string = this.config.get('DATABASE_NAME');
+
+    console.log({ databaseName });
+
     return 'Hello World!';
   }
 }
