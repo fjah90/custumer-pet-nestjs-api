@@ -10,9 +10,6 @@ import { getEnvPath } from './common/helper/env.helper';
 
 const envFilePath: string = getEnvPath(`${__dirname}/common/envs`);
 
-// const uri = 'mongodb+srv://petapp:XAANlb5scTTLPN4f@cluster0.d7ukh.mongodb.net/petApp';
-// const uri = 'mongodb://localhost:27017/petApp';
-
 @Module({
   imports: [
     ConfigModule.forRoot({ envFilePath, isGlobal: true }),
