@@ -14,33 +14,36 @@ export class CustumersService {
     @InjectModel(Custumer.name) private custumerModel: Model<CustumerDocument>,
   ) {}
 
-  create(createCustumerDto: CreateCustumerDto): Promise<Custumer> {
+  async create(createCustumerDto: CreateCustumerDto): Promise<Custumer> {
     // return 'This action adds a new custumer';
     const createdCustumer = new this.custumerModel(createCustumerDto);
-    return createdCustumer.save();
+    return await createdCustumer.save();
   }
 
-  findAll() {
+  async findAll() {
     // return `This action returns all custumers`;
-    return this.custumerModel.find();
+    // console.log("get all custumer");
+    return await this.custumerModel.find();
   }
 
-  findOne(id: string) {
+  async findOne(id: string) {
     // return `This action returns a #${id} custumer`;
-    return this.custumerModel.findOne({ custumer: new Types.ObjectId(id) });
+    // console.log("custumer find " + id);
+    return await this.custumerModel.findOne({ custumer: new Types.ObjectId(id) });
   }
 
-  update(id: string, updateCustumerDto: UpdateCustumerDto) {
+  async update(id: string, updateCustumerDto: UpdateCustumerDto) {
     // return `This action updates a #${id} custumer`;
-    console.log(updateCustumerDto);
-    return this.custumerModel.updateOne(
+    // console.log("custumer update - " + updateCustumerDto);
+    return await this.custumerModel.updateOne(
       { custumer: new Types.ObjectId(id) },
       { $set: updateCustumerDto },
     );
   }
 
-  remove(id: string) {
+  async remove(id: string) {
     // return `This action removes a #${id} custumer`;
-    return this.custumerModel.findOneAndDelete({ id: id })
+    // console.log("custumer delete - " + id);
+    return await this.custumerModel.deleteOne({ _id: id })
   }
 }
