@@ -12,32 +12,38 @@ import { Pet, PetDocument } from '../../schemas/pet.schema';
 export class PetsService {
   constructor(@InjectModel(Pet.name) private petModel: Model<PetDocument>) {}
 
-  create(createPetDto: CreatePetDto): Promise<Pet> {
+  async create(createPetDto: CreatePetDto): Promise<Pet> {
     // return 'This action adds a new pet';
     const createdPet = new this.petModel(createPetDto);
-    return createdPet.save();
+    return await createdPet.save();
   }
 
-  findAll() {
+  async findAll() {
     // return `This action returns all pets`;
-    return this.petModel.find();
+    return await this.petModel.find();
   }
 
-  findOne(id: string) {
+  async findOne(id: string) {
     // return `This action returns a #${id} pet`;
     return this.petModel.findOne({ pet: new Types.ObjectId(id) });
   }
+  
+  async findAllByCustumer(id: string) {
+    // return `This action returns a pet by custumer #${custumerId} `;
+    return await this.petModel.find({}).where('custumerId').equals(id);
+  }
 
-  update(id: string, updatePetDto: UpdatePetDto) {
+  async update(id: string, updatePetDto: UpdatePetDto) {
     // return `This action updates a #${id} pet`;
-    return this.petModel.updateOne(
+    return await this.petModel.updateOne(
       { pet: new Types.ObjectId(id) },
       { $set: updatePetDto },
     );
   }
 
-  remove(id: string) {
+  async remove(id: string) {
     // return `This action removes a #${id} pet`;
-    return this.petModel.findOneAndDelete({ id: id })
+    return await this.petModel.deleteOne({ id_: id })
   }
 }
+7
